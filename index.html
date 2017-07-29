@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>D3 Project - Population of Canada</title>
+  <link rel="stylesheet" type="text/css" href="/stylesheets/map-of-canada-style.css">
+  <script src="https://d3js.org/d3.v4.min.js"></script>
+  <script src="http://d3js.org/topojson.v2.min.js"></script>
+</head>
+<body>
+<h2>Maps Displaying the Population and Growth Rate of Canadian Provinces</h2>
+
+<div class="container">
+  <div id="map"></div>
+
+  <div class="description">
+  <h3>Population of Canada by Province from 2012 to 2016</h3>
+  <h4>Objective</h4>
+  <p>Determine the densest and least dense provinces of Canada for each year from 2012 to 2016.</p>
+
+  <h4>Description:</h4>
+  <ul>
+    <li>Select the year on the right to display the map for that year</li>
+    <li>The colour scale in the top-left is logarithmic</li>
+  </ul>
+
+  <h4>Map Creation Details:</h4>
+  <ul>
+    <li>Built using D3, a JavaScript library for visualizing data</li>
+    <li>Provincial boundaries (map) generated from <a href="http://www12.statcan.gc.ca/census-recensement/2011/geo/bound-limit/bound-limit-2016-eng.cfm" target="_blank">Stats Canada dataset</a></li>
+    <li>Map altered and units converted using <a href="http://www.qgis.org/en/site/" target="_blank">QGIS</a></li>
+    <li>Map file size reduced using Visvalingam-Whyatt line simplification</li>
+    <li>Geographic projection applied to reduce runtime operation costs</li>
+    <li>Population data collected from <a href="http://www.statcan.gc.ca/tables-tableaux/sum-som/l01/cst01/demo02a-eng.htm" target="_blank">Stats Canada</a></li>
+    <li>Population data merged into map data for streamlined retrieval</li>
+    <li>Map converted to TopoJSON and quantized</li>
+    <li>Original dataset size: 54MB, streamlined dataset size: 84KB</li>
+    <li>Logarithmic scale applied to better distinguish population sizes at the lower values</li>
+  </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div id="map-growth"></div>
+  <div class="description">
+    <h3>Growth Rate of each Province from 2012 to 2016</h3>
+    <h4>Objective</h4>
+    <p>Determine the province with the highest and lowest growth rate from the years 2012 to 2016</p>
+
+    <h4>Description:</h4>
+    <ul>
+      <li>The color scale in the top-left is linear since the range is very limited</li>
+      <li>Hovering over each province will reveal the growth rate</li>
+    </ul>
+
+    <h4>Map Creation Details:</h4>
+    <ul>
+      <li>Map built using the unchanged dataset from the population map</li>
+      <li>Calculations on the dataset were preformed to determine growth rate</li>
+      <li>Map re-generated with growth rate calculations</li>
+    </ul>
+
+  </div>
+</div>
+
+<script src="/js/canada.js"></script>
+</body>
+</html>
